@@ -1,9 +1,12 @@
 const express = require('express');
+const  morgan = require('morgan');
 let pokemons = require('./mock-pokemon');
 const{success} = require('./helper');
 
 const app = express();
 const port = 2000;
+
+app.use(morgan('dev'));
 
 app.get("/api/pokemons/:id", (req, res) => {
     const id = parseInt(req.params.id);
@@ -13,9 +16,9 @@ app.get("/api/pokemons/:id", (req, res) => {
 })
 
 app.get("/api/pokemons", (req, res) => {
-    const numberPokemons = pokemons
+    const allPokemons = pokemons
     const message = "La liste complète des pokemons"
-    res.json(success(message, pokemons));
+    res.json(success(message, allPokemons));
 
 })
 
