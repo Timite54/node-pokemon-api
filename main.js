@@ -3,12 +3,12 @@ const  morgan = require('morgan');
 const favicon = require('serve-favicon');
 let pokemons = require('./mock-pokemon');
 const{success, getPokeId} = require('./helper');
-const {Sequelize} = require('sequelize')
-
+const {Sequelize, DataTypes} = require('sequelize')
+const PokemonModel = require('./src/models/Pokemon')
 const app = express();
 const port = 2000;
 
-const sequelize = new Sequelize('pokemon', 'root', '', {
+const sequelize = new Sequelize('pokedex', 'root', '', {
     host: 'localhost',
     dialect: "mariadb",
     logging: false,
@@ -20,6 +20,14 @@ sequelize.authenticate()
 ).catch(error =>
     console.error('Unable to connect to the database:', error)
 )
+PokemonModel(sequelize, DataTypes)
+sequelize.sync({alter: true})
+.then(_ =>
+    console.log('All models were synchronized successfully.')
+).catch(
+    error => console.log(error)
+)
+
 app
     .use(favicon(__dirname + '/favicon.ico'))
     .use(morgan('dev'))
