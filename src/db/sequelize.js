@@ -23,7 +23,7 @@ const innitDB = async () => {
                     hp: pokemon.hp,
                     cp: pokemon.cp,
                     picture: pokemon.picture,
-                    types: pokemon.types.join()
+                    types: pokemon.types
                 }).then(bulbizarre => console.log(bulbizarre.toJSON()))
             })
         }).catch(error => console.log(error))

@@ -1,23 +1,34 @@
 {
-  "name": "node-pokemon-api",
+  "name": "pokemon-api",
   "version": "1.0.0",
-  "description": "An awesome API to handle some pokemons",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon main.js"
+    "start": "node main.js",
+    "dev": "nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Timite54/node-pokemon-api.git"
   },
   "keywords": [],
-  "author": "Timité",
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Timite54/node-pokemon-api/issues"
+  },
+  "homepage": "https://github.com/Timite54/node-pokemon-api#readme",
+  "description": "",
   "dependencies": {
-    "express": "^4.21.2",
-    "mariadb": "^3.4.0",
-    "sequelize": "^6.37.6",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mariadb": "^3.4.1",
+    "mongoose": "^8.13.2",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.37.7",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "morgan": "^1.10.0",
     "nodemon": "^3.1.9"
   }
 }
